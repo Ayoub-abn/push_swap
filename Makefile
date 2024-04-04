@@ -3,7 +3,8 @@ CFLGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c ft_isdigit.c \
 	  ft_putstr.c push_swap.c \
 	  ft_lstadd_back.c ft_split.c\
-	  ft_strjoin.c moves.c
+	  ft_strjoin.c moves.c sort_algo.c \
+	  fill_stack_a.c push_b_to_a.c
 
 OBG = $(SRC:.c=.o)
 %.o: %.c

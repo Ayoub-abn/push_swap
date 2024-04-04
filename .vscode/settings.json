@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "push_swap.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "random": "c",
+        "limits": "c",
+        "algorithm": "c"
+    }
+}

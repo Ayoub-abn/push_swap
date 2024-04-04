@@ -6,7 +6,7 @@
 /*   By: ayoub-abn <ayoub-abn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 20:39:02 by ayoub-abn         #+#    #+#             */
-/*   Updated: 2024/03/30 20:32:47 by ayoub-abn        ###   ########.fr       */
+/*   Updated: 2024/04/01 16:30:38 by ayoub-abn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,19 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 	new->next = *lst;
 	*lst = new;
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	t_list	*p;
+	int		i;
+
+	i = 0;
+	p = lst;
+	while (p != NULL)
+	{
+		p = p->next;
+		i++;
+	}
+	return (i);
 }
