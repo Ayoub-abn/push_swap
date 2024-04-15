@@ -6,7 +6,7 @@
 /*   By: ayoub-abn <ayoub-abn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 16:47:11 by ayoub-abn         #+#    #+#             */
-/*   Updated: 2024/04/04 02:44:21 by ayoub-abn        ###   ########.fr       */
+/*   Updated: 2024/04/04 20:29:37 by ayoub-abn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int					get_index_of_max(t_list *stack_b);
 void				transfer_to_stack_b(int index, t_list **stack_a,
 						t_list **stack_b);
 
-
-void push_b_to_a (t_list **stack_a, t_list **stack_b);
+void				push_b_to_a(t_list **stack_a, t_list **stack_b);
+void				push_a_to_b(t_list **stack_a, t_list **stack_b);
 //////////////////////////tkharbi9////////////////////////////////
-void	tba3_steck_b(t_list *stack_b);
-void	tba3_steck_a(t_list *stack_a);
+void				tba3_steck_b(t_list *stack_b);
+void				tba3_steck_a(t_list *stack_a);
 #endif
