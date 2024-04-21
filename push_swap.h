@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ayoub-abn <ayoub-abn@student.42.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 16:47:11 by ayoub-abn         #+#    #+#             */
-/*   Updated: 2024/04/04 20:29:37 by ayoub-abn        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -21,12 +10,13 @@ typedef struct s_stack
 {
 	int				content;
 	struct s_stack	*next;
+	int				index;
 }					t_list;
 /////////////////////////////loot//////////////////////////////////
 long				ft_atoi(const char *str);
 void				ft_putstr_fd(char *s, int fd);
 int					ft_isdigit(int c);
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(char *s1, char *s2);
 /////////////////////////////link_list//////////////////////////////////
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -47,22 +37,29 @@ void				rr(t_list **stack_a, t_list **stack_b);
 void				pb(t_list **static_a, t_list **static_b);
 void				pa(t_list **static_b, t_list **static_a);
 void				rra(t_list **stack_a);
+void				rrr(t_list **stack_a, t_list **stack_b);
 void				rrb(t_list **stack_b);
 void				sb(t_list **stack_b);
 void				sa(t_list **stack_a);
 void				ss(t_list **stack_a, t_list **stack_b);
 /////////////////////////////sort//////////////////////////////////
-int					max_number(t_list *a);
+int					max_num(t_list *stack_b);
 void				three_numbers(t_list **stack_a);
-void				fill_stack_a(t_list **stack_a, int ac, char **av);
+void				fill_stack_a(t_list **stack_a, char **av, int ac);
 int					get_index_of_min_and_nearest(int element, t_list *stack_b);
 int					get_index_of_max(t_list *stack_b);
-void				transfer_to_stack_b(int index, t_list **stack_a,
+void				transfer_to_stack_b(int elment, int index, t_list **stack_a,
 						t_list **stack_b);
 
 void				push_b_to_a(t_list **stack_a, t_list **stack_b);
-void				push_a_to_b(t_list **stack_a, t_list **stack_b);
+void				push_a_to_b(t_list **stack_a, t_list **stack_b, int p);
 //////////////////////////tkharbi9////////////////////////////////
 void				tba3_steck_b(t_list *stack_b);
 void				tba3_steck_a(t_list *stack_a);
+
+/////////////////////////array////////////////////////////////
+int					*fill_array(t_list *stack_a);
+int					*sort_array(int *array, t_list *stack_a);
+/////////////////////////free/////////////////////////////////
+void				free_stack(t_list **stack);
 #endif
