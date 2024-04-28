@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 19:59:42 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/25 23:26:42 by aabdenou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -21,7 +32,7 @@ void	rotate(t_list **stack)
 	*stack = tmp2;
 	ft_lstadd_back(stack, tmp1);
 }
-// 1->NULL
+
 void	reverse_rotate(t_list **stack)
 {
 	t_list	*tmp;
@@ -49,6 +60,7 @@ void	sa(t_list **stack_a)
 		ft_putstr_fd("sa\n", 1);
 	}
 }
+
 void	sb(t_list **stack_b)
 {
 	if (ft_lstsize(*stack_b))
@@ -57,6 +69,7 @@ void	sb(t_list **stack_b)
 		ft_putstr_fd("sb\n", 1);
 	}
 }
+
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(*stack_a) && ft_lstsize(*stack_b))
@@ -75,23 +88,26 @@ void	ra(t_list **stack_a)
 		ft_putstr_fd("ra\n", 1);
 	}
 }
+
 void	rb(t_list **stack_b)
 {
-	if (ft_lstsize(*stack_b)>= 2)
+	if (ft_lstsize(*stack_b) >= 2)
 	{
 		rotate(stack_b);
 		ft_putstr_fd("rb\n", 1);
 	}
 }
+
 void	rr(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_a) >= 2 && ft_lstsize(*stack_b)>= 2)
+	if (ft_lstsize(*stack_a) >= 2 && ft_lstsize(*stack_b) >= 2)
 	{
 		rotate(stack_a);
 		rotate(stack_b);
 		ft_putstr_fd("rr\n", 1);
 	}
 }
+
 void	rra(t_list **stack_a)
 {
 	if (ft_lstsize(*stack_a) >= 2)
@@ -100,6 +116,7 @@ void	rra(t_list **stack_a)
 		ft_putstr_fd("rra\n", 1);
 	}
 }
+
 void	rrb(t_list **stack_b)
 {
 	if (ft_lstsize(*stack_b) >= 2)
@@ -118,21 +135,25 @@ void	rrr(t_list **stack_a, t_list **stack_b)
 		ft_putstr_fd("rrr\n", 1);
 	}
 }
+
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;
-	if(!stack_a || !stack_b || !*stack_a  )
-		return;
+
+	if (!stack_a || !stack_b || !*stack_a)
+		return ;
 	tmp_a = *stack_a;
 	*stack_a = tmp_a->next;
 	ft_lstadd_front(stack_b, tmp_a);
 	ft_putstr_fd("pb\n", 1);
 }
+
 void	pa(t_list **stack_b, t_list **stack_a)
 {
 	t_list	*tmp_b;
-	if(!stack_b || !stack_a || !*stack_b  )
-		return;
+
+	if (!stack_b || !stack_a || !*stack_b)
+		return ;
 	tmp_b = *stack_b;
 	*stack_b = tmp_b->next;
 	ft_lstadd_front(stack_a, tmp_b);

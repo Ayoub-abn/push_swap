@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 19:59:35 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/28 00:40:00 by aabdenou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -14,6 +25,8 @@ typedef struct s_stack
 }					t_list;
 /////////////////////////////loot//////////////////////////////////
 long				ft_atoi(const char *str);
+void 				check_sp(char *av,t_list **stack_a,char *str);
+void 				check_db(t_list *stack_a,int num);
 void				ft_putstr_fd(char *s, int fd);
 int					ft_isdigit(int c);
 char				*ft_strjoin(char *s1, char *s2);
@@ -45,11 +58,15 @@ void				ss(t_list **stack_a, t_list **stack_b);
 /////////////////////////////sort//////////////////////////////////
 int					max_num(t_list *stack_b);
 void				three_numbers(t_list **stack_a);
-void				fill_stack_a(t_list **stack_a, char **av, int ac);
+void				index_in_list(t_list *stack_a, int *arry);
+void 				for_numbers (t_list **stack_a,t_list **stack_b);
+void 				fiv_numbers (t_list **stack_a,t_list **stack_b);
+void				fill_stack_a(t_list **stack_a,t_list **stack_b ,char **av, int ac);
+void				sort(t_list **stack_a , t_list **stack_b , int *array, int p);
 int					get_index_of_min_and_nearest(int element, t_list *stack_b);
 int					get_index_of_max(t_list *stack_b);
-void				transfer_to_stack_b(int elment, int index, t_list **stack_a,
-						t_list **stack_b);
+// void				transfer_to_stack_b(int elment, int index, t_list **stack_a,
+// 						t_list **stack_b);
 
 void				push_b_to_a(t_list **stack_a, t_list **stack_b);
 void				push_a_to_b(t_list **stack_a, t_list **stack_b, int p);
@@ -62,4 +79,6 @@ int					*fill_array(t_list *stack_a);
 int					*sort_array(int *array, t_list *stack_a);
 /////////////////////////free/////////////////////////////////
 void				free_stack(t_list **stack);
+void	free_stack_error(t_list **stack_a);
+void free_strs(char **strs);
 #endif

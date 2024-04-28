@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_and_sort_array.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 20:00:09 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/25 20:10:01 by aabdenou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*fill_array(t_list *stack_a)
@@ -14,9 +26,9 @@ int	*fill_array(t_list *stack_a)
 		i++;
 		stack_a = stack_a->next;
 	}
-	// printf("\n----------------------------------------------\n");
 	return (array);
 }
+
 int	*sort_array(int *array, t_list *stack_a)
 {
 	int	i;

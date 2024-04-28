@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 19:59:56 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/26 17:30:45 by aabdenou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -18,7 +29,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	p->next = new;
 }
 
-
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*p;
@@ -30,6 +40,7 @@ t_list	*ft_lstlast(t_list *lst)
 		p = p->next;
 	return (p);
 }
+
 t_list	*ft_lstnew(int content)
 {
 	t_list	*new_node;
@@ -59,7 +70,7 @@ int	ft_lstsize(t_list *lst)
 
 	i = 0;
 	p = lst;
-	if(!lst)
+	if (!lst)
 		return (0);
 	while (p != NULL)
 	{

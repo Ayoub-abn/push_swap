@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 19:59:31 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/28 01:26:09 by aabdenou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	tba3_steck_a(t_list *stack_a)
@@ -13,7 +25,7 @@ void	tba3_steck_a(t_list *stack_a)
 		tmp = tmp->next;
 	}
 }
-
+///mazl ma mefhomach
 void	index_in_list(t_list *stack_a, int *arry)
 {
 	int		i;
@@ -32,36 +44,61 @@ void	index_in_list(t_list *stack_a, int *arry)
 		tmp = tmp->next;
 	}
 }
+///mazl ma mefhomach
+void is_sort(t_list *stack_a)
+{
+	while (stack_a->next)
+	{
+		if(stack_a->content > stack_a->next->content)
+		{
+			return;
+		}
+		stack_a = stack_a->next;
+	}
+	exit(0);
+}
 int	main(int ac, char *av[])
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
-	//int		i = 0;
-	int		*array;
-    int p = 15;
+	int		*array = NULL;
+	int		size;
+	int		p = 30;
+	
 	stack_a = malloc(sizeof(t_list));
 	stack_b = malloc(sizeof(t_list));
-	fill_stack_a(stack_a, av, ac);
-	array = sort_array(fill_array(*stack_a), *stack_a);
-	index_in_list(*stack_a, array);
-    push_a_to_b(stack_a,stack_b,p);
-    push_b_to_a(stack_b,stack_a);
-
-    // printf("max = %d  ",max_num(*stack_b));
-	//tba3_steck_a(*stack_a);
-   
-    
-	// i = 0;
-	//////////////tbi3 array/////////
-	// while (i < ft_lstsize(*stack_a))
-	// {
-	// 	printf("array sort : %d \n", array[i]);
-	// 	i++;
-	// }
-    free(array);
-    free_stack(stack_a);
-    free_stack(stack_b);
-    free(stack_a);
-    free(stack_b);
+	fill_stack_a(stack_a, stack_a ,av, ac);
+	is_sort(*stack_a);
+	
+	size = ft_lstsize(*stack_a);
+	if (size == 2)
+	{
+		t_list *tmp = *stack_a;
+		if (tmp->content > tmp->next->content)
+			sa(stack_a);
+		free_stack(stack_a);
+		free(stack_a);
+		free(stack_b);
+		exit(0);
+	}
+	else if (size == 3)
+	{
+		three_numbers(stack_a);
+		free_stack(stack_a);
+		free(stack_a);
+		free(stack_b);
+		exit(0);
+	}
+		
+	else if (size == 4 || size == 5)
+		(for_numbers(stack_a,stack_b),exit(0));
+	else if (size > 5 && size < 500)
+		p = 15;
+	sort(stack_a,stack_b,array,p);
+	// free(array);
+	// free_stack(stack_a);
+	// free_stack(stack_b);
+	// free(stack_a);
+	// free(stack_b);
 	return (0);
 }

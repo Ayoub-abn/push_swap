@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 19:59:51 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/25 23:16:58 by aabdenou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_words(const char *str, char c)
+int	count_words(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -22,7 +33,7 @@ static int	count_words(const char *str, char c)
 	return (count);
 }
 
-static char	**free_list(char **str, int n)
+char	**free_list(char **str, int n)
 {
 	while (n > 0)
 		free(str[--n]);
@@ -85,6 +96,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	p[i] = '\0';
 	return (p);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -96,6 +108,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
+
 char	*ft_strdup(const char *s1)
 {
 	int		i;
