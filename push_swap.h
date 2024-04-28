@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:35 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/28 00:40:00 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:01:10 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct s_stack
 }					t_list;
 /////////////////////////////loot//////////////////////////////////
 long				ft_atoi(const char *str);
-void 				check_sp(char *av,t_list **stack_a,char *str);
-void 				check_db(t_list *stack_a,int num);
+void 				check_sp(char *av,t_list **stack_a,t_list **stack_b,char *str);
+void 				check_db(t_list **stack_a,t_list **stack_b ,char **strs,int num);
 void				ft_putstr_fd(char *s, int fd);
 int					ft_isdigit(int c);
 char				*ft_strjoin(char *s1, char *s2);
@@ -79,6 +79,7 @@ int					*fill_array(t_list *stack_a);
 int					*sort_array(int *array, t_list *stack_a);
 /////////////////////////free/////////////////////////////////
 void				free_stack(t_list **stack);
-void	free_stack_error(t_list **stack_a);
-void free_strs(char **strs);
+void				free_stack_error(t_list **stack_a,t_list **stack_b);
+void 				free_strs(char **strs);
+void free_no_error(t_list **stack_a,t_list **stack_b);
 #endif

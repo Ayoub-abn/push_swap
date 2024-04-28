@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 23:35:03 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/28 01:31:45 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:00:28 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ long	ft_atoi(const char *str)
 	return (res * sin);
 }
 
-void check_sp(char *av,t_list **stack_a,char *str)
+void check_sp(char *av,t_list **stack_a,t_list **stack_b,char *str)
 {
 	int i = 0;
 	while ((av[i] == ' ' || av[i] == '\t') && av[i])
@@ -54,22 +54,27 @@ void check_sp(char *av,t_list **stack_a,char *str)
 		ft_putstr_fd("Error\n", 2);
 		free_stack(stack_a);
 		free(stack_a);
+		free(stack_b);
 		free(str);
 		exit(1);
 	}
 	
 }
 
-void check_db(t_list *stack_a,int num)
+void check_db(t_list **stack_a,t_list **stack_b ,char **strs,int num)
 {
-    while (stack_a)
+	(void) strs;
+	t_list *tmp = *stack_a;
+    while (tmp)
     {
-        if(stack_a->content == num)
+        if(tmp->content == num)
         {
             ft_putstr_fd("Error\n", 2);
+			free_stack_error(stack_a,stack_b);
+			free_strs(strs);
 		    exit(1);
         }
 
-        stack_a = stack_a->next;
+        tmp = tmp->next;
     }
 }

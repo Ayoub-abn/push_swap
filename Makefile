@@ -6,7 +6,7 @@
 #    By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 19:59:45 by aabdenou          #+#    #+#              #
-#    Updated: 2024/04/28 00:36:34 by aabdenou         ###   ########.fr        #
+#    Updated: 2024/04/28 18:52:52 by aabdenou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = crazy_input.c ft_isdigit.c \
 	  ft_lstadd_back.c ft_split.c\
 	  ft_strjoin.c moves.c fill_stack_a.c\
 	  fill_and_sort_array.c push_a_to_b.c \
-	  free_fun.c sort.c
+	  free_fun.c sort.c 
 
 OBG = $(SRC:.c=.o)
 %.o: %.c

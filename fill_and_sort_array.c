@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 20:00:09 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/25 20:10:01 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:05:10 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	*fill_array(t_list *stack_a)
 	while (stack_a)
 	{
 		array[i] = stack_a->content;
-		//printf("array : %d\n", array[i]);
 		i++;
 		stack_a = stack_a->next;
 	}
@@ -47,11 +46,5 @@ int	*sort_array(int *array, t_list *stack_a)
 		else
 			i++;
 	}
-	// i = 0;
-	// while (i < ft_lstsize(stack_a))
-	// {
-	// 	printf("array sort : %d \n", array[i]);
-	// 	i++;
-	// }
 	return (array);
 }
