@@ -6,17 +6,16 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 18:49:33 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/28 15:50:44 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:17:33 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int min_num(t_list *stack_a)
+int	min_num(t_list *stack_a)
 {
-    int	min;
-    
+	int	min;
+
 	min = stack_a->content;
 	while (stack_a)
 	{
@@ -27,17 +26,19 @@ int min_num(t_list *stack_a)
 	return (min);
 }
 
-int indix_of_min(t_list *stack_a)
+int	indix_of_min(t_list *stack_a)
 {
-    int i = 0;
-    while (stack_a)
-    {
-        if(stack_a->content == min_num(stack_a))
-            break;
-        i++;
-        stack_a = stack_a->next;
-    }
-    return(i);
+	int	i;
+
+	i = 0;
+	while (stack_a)
+	{
+		if (stack_a->content == min_num(stack_a))
+			break ;
+		i++;
+		stack_a = stack_a->next;
+	}
+	return (i);
 }
 
 void	three_numbers(t_list **stack_a)
@@ -56,38 +57,35 @@ void	three_numbers(t_list **stack_a)
 		sa(stack_a);
 }
 
-void	for_numbers (t_list **stack_a,t_list **stack_b)
+void	for_numbers(t_list **stack_a, t_list **stack_b)
 {
-    while (ft_lstsize(*stack_a) > 3)
-    {
-        if (indix_of_min(*stack_a) == 0)
-            pb(stack_a, stack_b);
-        else if (indix_of_min(*stack_a) < ft_lstsize(*stack_a) / 2)
-            ra(stack_a);
-        else 
-            rra(stack_a);        
-    }
-    three_numbers(stack_a);
-    while (ft_lstsize(*stack_b))
+	while (ft_lstsize(*stack_a) > 3)
 	{
-         pa(stack_b,stack_a);	
+		if (indix_of_min(*stack_a) == 0)
+			pb(stack_a, stack_b);
+		else if (indix_of_min(*stack_a) < ft_lstsize(*stack_a) / 2)
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
+	three_numbers(stack_a);
+	while (ft_lstsize(*stack_b))
+	{
+		pa(stack_b, stack_a);
 	}
 	free_stack(stack_a);
 	free_stack(stack_b);
-	free(stack_a);
-	free(stack_b);
 }
 
-void sort(t_list **stack_a , t_list **stack_b , int *array, int p)
+void	sort(t_list **stack_a, t_list **stack_b, int p)
 {
-    array = sort_array(fill_array(*stack_a), *stack_a);
+	int	*array;
+
+	array = sort_array(fill_array(*stack_a), *stack_a);
 	index_in_list(*stack_a, array);
 	push_a_to_b(stack_a, stack_b, p);
 	push_b_to_a(stack_b, stack_a);
-    
 	free(array);
 	free_stack(stack_a);
 	free_stack(stack_b);
-	free(stack_a);
-	free(stack_b);
 }

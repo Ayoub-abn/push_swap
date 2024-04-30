@@ -9,6 +9,10 @@
         "limits": "c",
         "algorithm": "c",
         "stdio.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "get_next_line.h": "c",
+        "stdlib.h": "c",
+        "push_swap_bonus.h": "c",
+        "sort_3_4_5.C": "cpp"
     }
 }

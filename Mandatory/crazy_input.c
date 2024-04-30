@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 23:35:03 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/28 16:00:28 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:24:00 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,53 +28,71 @@ long	ft_atoi(const char *str)
 		if (str[i++] == '-')
 			sin = -1;
 		if (str[i] == '+' || str[i] == '-')
-			return(ft_putstr_fd("Error\n", 2),-2147483649);	
+			return (ft_putstr_fd("Error\n", 2), -2147483649);
 	}
 	while ((str[i] >= '0' && str[i] <= '9') && str[i])
 	{
 		res = res * 10 + (str[i++] - '0');
 		if (res * sin > 2147483647 || res * sin < -2147483648)
-			return(ft_putstr_fd("Error\n", 2),-2147483649);
+			return (ft_putstr_fd("Error\n", 2), -2147483649);
 	}
 	if (str[i] || str[i - 1] == '-' || str[i - 1] == '+')
-		return(ft_putstr_fd("Error\n", 2),-2147483649);
+		return (ft_putstr_fd("Error\n", 2), -2147483649);
 	return (res * sin);
 }
 
-void check_sp(char *av,t_list **stack_a,t_list **stack_b,char *str)
+void	check_sp(char *av, t_list **stack_a, char *str)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while ((av[i] == ' ' || av[i] == '\t') && av[i])
 	{
 		i++;
 	}
-
-	if(av[i] == '\0')
+	if (av[i] == '\0')
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_stack(stack_a);
-		free(stack_a);
-		free(stack_b);
 		free(str);
-		exit(1);
+		exit(255);
 	}
-	
 }
 
-void check_db(t_list **stack_a,t_list **stack_b ,char **strs,int num)
+void	check_db(t_list **stack_a, char **strs, int num)
 {
-	(void) strs;
-	t_list *tmp = *stack_a;
-    while (tmp)
-    {
-        if(tmp->content == num)
-        {
-            ft_putstr_fd("Error\n", 2);
-			free_stack_error(stack_a,stack_b);
-			free_strs(strs);
-		    exit(1);
-        }
+	t_list	*tmp;
 
-        tmp = tmp->next;
-    }
+	tmp = *stack_a;
+	while (tmp)
+	{
+		if (tmp->content == num)
+		{
+			ft_putstr_fd("Error\n", 2);
+			free_stack_error(stack_a);
+			free_strs(strs);
+			exit(255);
+		}
+		tmp = tmp->next;
+	}
+}
+
+///mazl ma mefhomach
+void	index_in_list(t_list *stack_a, int *arry)
+{
+	int		i;
+	t_list	*tmp;
+
+	i = 0;
+	tmp = stack_a;
+	while (tmp)
+	{
+		i = 0;
+		while (tmp->content != arry[i])
+		{
+			i++;
+		}
+		tmp->index = i;
+		tmp = tmp->next;
+	}
 }

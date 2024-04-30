@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:51 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/25 23:16:58 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/04/29 00:27:06 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,36 +91,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		p[i] = s[start];
 		start++;
-		i++;
-	}
-	p[i] = '\0';
-	return (p);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	int		i;
-	char	*p;
-
-	i = 0;
-	p = malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (p == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		p[i] = s1[i];
 		i++;
 	}
 	p[i] = '\0';

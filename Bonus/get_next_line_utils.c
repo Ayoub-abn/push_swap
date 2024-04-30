@@ -1,51 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 19:59:48 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/25 20:05:03 by aabdenou         ###   ########.fr       */
+/*   Created: 2023/12/10 18:55:52 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/04/29 22:22:12 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-static int	my_strlen(const char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	int		lin;
-	char	*p;
+	char	*str;
 	int		i;
-	int		j;
 
-	lin = my_strlen(s1) + my_strlen(s2);
 	i = 0;
-	j = 0;
-	p = malloc((lin + 2) * sizeof(char));
-	if (p == NULL)
+	str = (char *)s;
+	if (str == NULL)
 		return (NULL);
-	while (s1 != NULL && s1[i] != '\0')
+	while (str[i] != '\0')
 	{
-		p[i] = s1[i];
+		if (str[i] == (char)c)
+			return (str + i);
 		i++;
 	}
-	while (s2 != NULL && s2[j] != '\0')
-		p[i++] = s2[j++];
-	p[i++] = ' ';
-	p[i] = '\0';
+	if ((char)c == 0)
+		return (str + i);
+	return (0);
+}
+
+char	*ft_strjoin_get(char *s1, char *s2)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	i = 0;
+	j = 0;
+	if (!s1)
+		return (ft_strdup(s2));
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
 	free(s1);
-	return (p);
+	return (str);
 }
