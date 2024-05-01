@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 20:00:09 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/28 16:05:10 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/01 16:31:35 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int	*sort_array(int *array, t_list *stack_a)
 {
 	int	i;
 	int	tmp;
+	int	size;
 
+	size = ft_lstsize(stack_a);
 	i = 0;
-	while (i < ft_lstsize(stack_a) - 1)
+	while (i < size - 1)
 	{
 		if (array[i] > array[i + 1])
 		{

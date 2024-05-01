@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:42 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/29 00:16:25 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/01 19:34:05 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	reverse_rotate(t_list **stack)
 
 void	sa(t_list **stack_a)
 {
-	if (ft_lstsize(*stack_a))
+	if (ft_lstsize(*stack_a) > 1)
 	{
 		swap(stack_a);
 		ft_putstr_fd("sa\n", 1);

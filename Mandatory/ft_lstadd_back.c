@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:56 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/30 18:24:51 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/01 20:18:52 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	p = ft_lstlast(*lst);
 	p->next = new;
 }
-/////////////ma mfhomach
+
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*p;

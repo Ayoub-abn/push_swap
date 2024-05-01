@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 23:35:03 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/30 18:24:00 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/01 17:07:27 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long	ft_atoi(const char *str)
 	i = 0;
 	sin = 1;
 	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	while (str[i] == ' ' && str[i])
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -36,6 +36,7 @@ long	ft_atoi(const char *str)
 		if (res * sin > 2147483647 || res * sin < -2147483648)
 			return (ft_putstr_fd("Error\n", 2), -2147483649);
 	}
+	////////nsitha
 	if (str[i] || str[i - 1] == '-' || str[i - 1] == '+')
 		return (ft_putstr_fd("Error\n", 2), -2147483649);
 	return (res * sin);
@@ -46,7 +47,7 @@ void	check_sp(char *av, t_list **stack_a, char *str)
 	int	i;
 
 	i = 0;
-	while ((av[i] == ' ' || av[i] == '\t') && av[i])
+	while (av[i] == ' ' && av[i])
 	{
 		i++;
 	}
