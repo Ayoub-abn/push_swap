@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:39 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/01 20:19:30 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/05 02:23:43 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	index_of_best(t_list *stack_b, t_list *stack_a, int p)
 	i = 0;
 	while (stack_a)
 	{
-		if (stack_a->index <= ft_lstsize(stack_b) + p)
-		{
+		if (stack_a->index < ft_lstsize(stack_b))
 			break ;
-		}
+		if (stack_a->index <= ft_lstsize(stack_b) + p)
+			break ;
 		i++;
 		stack_a = stack_a->next;
 	}
@@ -42,7 +42,7 @@ void	push_a_to_b(t_list **stack_a, t_list **stack_b, int p)
 		{
 			pb(stack_a, stack_b);
 		}
-		else if (index_of_best(*stack_b, *stack_a, p) < ft_lstsize(*stack_a)
+		else if (index_of_best(*stack_b, *stack_a, p) <= ft_lstsize(*stack_a)
 			/ 2)
 		{
 			ra(stack_a);

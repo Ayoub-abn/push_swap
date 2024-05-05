@@ -6,46 +6,52 @@
 #    By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 19:59:45 by aabdenou          #+#    #+#              #
-#    Updated: 2024/04/30 18:35:26 by aabdenou         ###   ########.fr        #
+#    Updated: 2024/05/04 17:19:51 by aabdenou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 NAME_1 = checker
-CFLGS = -Wall -Wextra -Werror -fsanitize=address -g3
-ALL_SRC = crazy_input.c ft_putstr.c \
-	  ft_lstadd_back.c ft_split.c\
-	  ft_strjoin.c fill_stack_a.c\
-	  free_fun.c 
+CFLAGS =  -Wall -Wextra -Werror 
+ALL_SRC = ./Mandatory/crazy_input.c ./Mandatory/ft_putstr.c \
+	  ./Mandatory/ft_lstadd_back.c ./Mandatory/ft_split.c\
+	  ./Mandatory/ft_strjoin.c ./Mandatory/fill_stack_a.c\
+	  ./Mandatory/free_fun.c 
 	  
-SRC = $(ALL_SRC) push_swap.c moves.c moves_2.c moves_3.c \
-		fill_and_sort_array.c push_a_to_b.c sort.c sort_2_3_4_5.c
-SRCB = $(ALL_SRC) ../Bonus/checker.c ../Bonus/get_next_line_utils.c \
-		 ../Bonus/get_next_line.c ../Bonus/ft_strcmp.c  ../Bonus/moves_bonus.c \
-		  ../Bonus/moves_bonus_2.c ../Bonus/moves_bonus_3.c 
+SRC = $(ALL_SRC) ./Mandatory/push_swap.c \
+	./Mandatory/fill_and_sort_array.c \
+	./Mandatory/sort_2_3_4_5.c\
+	./Mandatory/moves_2.c \
+	./Mandatory/moves_3.c \
+	./Mandatory/moves.c \
+	./Mandatory/sort.c \
+	./Mandatory/push_a_to_b.c 
+SRCB = $(ALL_SRC) ./Bonus/checker.c \
+	./Bonus/get_next_line_utils.c \
+	./Bonus/get_next_line.c \
+	./Bonus/ft_strcmp.c \
+	./Bonus/moves_bonus.c \
+	./Bonus/moves_bonus_2.c \
+	./Bonus/moves_bonus_3.c 
 	   
 OBG = $(SRC:.c=.o)
 OBGB = $(SRCB:.c=.o)
 
 %.o: %.c
-	@$(CC) $(CFLGS) -c $< -o $@ 
-	@echo "✅"
-
+	$(CC) $(CFLAGS) -c $< -o $@
+	
 all: $(NAME)
 
 $(NAME): $(OBG) 
-	@$(CC) $(CFLGS) $(OBG) -o $(NAME)
-	@rm -f $(OBG)
+	$(CC) $(CFLAGS) $(OBG) -o $(NAME)
 
 bonus : $(NAME_1)
 
 $(NAME_1): $(OBGB) 
-	@$(CC) $(CFLGS) $(OBGB) -o $(NAME_1)
-	@rm -f $(OBGB)
+	$(CC) $(CFLAGS) $(OBGB) -o $(NAME_1)
 	
 clean:
-	@rm -f $(OBG) $(OBGB)
-	@echo "🗑"
+	rm -f $(OBG) $(OBGB)
 fclean: clean
-	@rm -f $(NAME) $(NAME_1)
+	rm -f $(NAME) $(NAME_1)
 re: fclean all

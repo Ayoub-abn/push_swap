@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/27 18:49:33 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/30 16:17:33 by aabdenou         ###   ########.fr       */
+/*   Created: 2024/05/03 01:52:55 by aabdenou          #+#    #+#             */
+/*   Updated: 2024/05/05 18:37:57 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,26 +44,23 @@ int	indix_of_min(t_list *stack_a)
 void	three_numbers(t_list **stack_a)
 {
 	int		max;
-	t_list	*tmp;
-
-	tmp = *stack_a;
-	max = max_num(tmp);
-	if (max == tmp->next->content)
+	
+	max = max_num(*stack_a);
+	if (max == (*stack_a)->next->content)
 		rra(stack_a);
-	else if (tmp->content == max)
+	else if ((*stack_a)->content == max)
 		ra(stack_a);
-	tmp = *stack_a;
-	if (tmp->content > tmp->next->content)
+	if ((*stack_a)->content > (*stack_a)->next->content)
 		sa(stack_a);
 }
 
-void	for_numbers(t_list **stack_a, t_list **stack_b)
+void	four_numbers(t_list **stack_a, t_list **stack_b)
 {
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		if (indix_of_min(*stack_a) == 0)
 			pb(stack_a, stack_b);
-		else if (indix_of_min(*stack_a) < ft_lstsize(*stack_a) / 2)
+		else if (indix_of_min(*stack_a) <= ft_lstsize(*stack_a) / 2)
 			ra(stack_a);
 		else
 			rra(stack_a);

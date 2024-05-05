@@ -6,13 +6,12 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:31 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/01 19:45:41 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/05 19:03:59 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-///mazl ma mefhomach
 void	is_sort(t_list **stack_a)
 {
 	t_list	*tmp;
@@ -47,9 +46,8 @@ int	main(int ac, char *av[])
 	if (size == 1)
 		(free_stack(&stack_a), exit(0));
 	is_sort(&stack_a);
-	sort_2_3_4_5(&stack_a, &stack_b, size);
+	sort_2_to_5(&stack_a, &stack_b, size);
 	if (size > 5 && size < 500)
 		p = 15;
 	sort(&stack_a, &stack_b, p);
-	return (0);
 }

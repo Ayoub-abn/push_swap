@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:35 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/30 16:36:30 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/04 22:52:02 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,9 @@ void				rr(t_list **stack_a, t_list **stack_b);
 void				pb(t_list **static_a, t_list **static_b);
 void				pa(t_list **static_b, t_list **static_a);
 void				rra(t_list **stack_a);
-void				rrr(t_list **stack_a, t_list **stack_b);
 void				rrb(t_list **stack_b);
 void				sb(t_list **stack_b);
 void				sa(t_list **stack_a);
-void				ss(t_list **stack_a, t_list **stack_b);
 void				reverse_rotate(t_list **stack);
 void				swap(t_list **stack);
 void				rotate(t_list **stack);
@@ -64,18 +62,13 @@ int					max_num(t_list *stack_b);
 void				is_sort(t_list **stack_a);
 void				three_numbers(t_list **stack_a);
 void				index_in_list(t_list *stack_a, int *arry);
-void				sort_2_3_4_5(t_list **stack_a, t_list **stack_b, int size);
-void				for_numbers(t_list **stack_a, t_list **stack_b);
-void				fiv_numbers(t_list **stack_a, t_list **stack_b);
+void				sort_2_to_5(t_list **stack_a, t_list **stack_b, int size);
+void				four_numbers(t_list **stack_a, t_list **stack_b);
 void				fill_stack_a(t_list **stack_a, char **av, int ac);
 void				sort(t_list **stack_a, t_list **stack_b, int p);
 int					get_index_of_max(t_list *stack_b);
 void				push_b_to_a(t_list **stack_a, t_list **stack_b);
 void				push_a_to_b(t_list **stack_a, t_list **stack_b, int p);
-//////////////////////////tkharbi9////////////////////////////////
-void				tba3_steck_b(t_list *stack_b);
-void				tba3_steck_a(t_list *stack_a);
-
 /////////////////////////array////////////////////////////////
 int					*fill_array(t_list *stack_a);
 int					*sort_array(int *array, t_list *stack_a);

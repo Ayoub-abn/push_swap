@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 01:12:49 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/30 16:09:46 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/05 02:22:31 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,11 @@ void	free_stack(t_list **stack)
 {
 	t_list	*tmp;
 
-	tmp = *stack;
 	while (*stack)
 	{
-		if (tmp != NULL)
-		{
-			tmp = tmp->next;
-		}
+		tmp = (*stack)->next;
 		free(*stack);
-		*stack = tmp;
-	}
-}
-
-void	free_stack_error(t_list **stack_a)
-{
-	t_list	*tmp;
-
-	tmp = *stack_a;
-	while (*stack_a)
-	{
-		if (tmp != NULL)
-		{
-			tmp = tmp->next;
-		}
-		free(*stack_a);
-		*stack_a = tmp;
+		(*stack) = tmp;
 	}
 }
 

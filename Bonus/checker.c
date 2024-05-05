@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 20:06:03 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/04/30 18:44:08 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/05 15:03:08 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,30 @@
 void	is_sort_check(t_list *stack_a, t_list *stack_b)
 {
 	t_list	*tmp;
-	
+
+	if (ft_lstsize(stack_a) == 0)
+	{
+		ft_putstr_fd("KO\n", 1);
+		(free_stack(&stack_a), free_stack(&stack_b), exit(0));
+	}
 	tmp = stack_a;
 	while (tmp->next)
 	{
 		if (tmp->content > tmp->next->content)
 		{
-			ft_putstr_fd("KO\n", 2);
-			free_stack(&stack_a);
-			free_stack(&stack_b);
-			exit(0);
+			ft_putstr_fd("KO\n", 1);
+			(free_stack(&stack_a), free_stack(&stack_b), exit(0));
 		}
 		tmp = tmp->next;
 	}
-	if (stack_b)
+	if (ft_lstsize(stack_b) > 0)
 	{
-		ft_putstr_fd("KO\n", 2);
-		free_stack(&stack_a);
-		free_stack(&stack_b);
+		ft_putstr_fd("KO\n", 1);
+		(free_stack(&stack_a), free_stack(&stack_b));
 		exit(0);
 	}
 	ft_putstr_fd("OK\n", 1);
-	(free_stack(&stack_a), free_stack(&stack_b));
-	exit(0);
+	(free_stack(&stack_a), free_stack(&stack_b), exit(0));
 }
 
 void	moves(t_list **stack_a, t_list **stack_b, char *line)
@@ -65,8 +66,9 @@ void	moves(t_list **stack_a, t_list **stack_b, char *line)
 	else if (ft_strcmp(line, "rrr\n") == 0)
 		rrr(stack_a, stack_b);
 	else
+	       //hadi
 		(get_next_line(-500), free_stack(stack_a), free_stack(stack_b),
-			ft_putstr_fd("Error\n", 2), exit(255));
+			 free(line), ft_putstr_fd("Error\n", 2), exit(255));
 }
 
 void	check_moves(t_list **stack_a, t_list **stack_b)
@@ -92,11 +94,6 @@ int	main(int ac, char *av[])
 	stack_a = NULL;
 	stack_b = NULL;
 	fill_stack_a(&stack_a, av, ac);
-	// if (ft_lstsize(stack_a) == 1)
-	// {
-	// 	free_stack(&stack_a);
-	// 	exit(0);
-	// }
 	check_moves(&stack_a, &stack_b);
 	is_sort_check(stack_a, stack_b);
 	return (0);
