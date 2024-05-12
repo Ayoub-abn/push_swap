@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:54:54 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/04 16:39:37 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/06 19:02:47 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*all_buffer(char *str, int fd)
 
 char	*one_line(char *str)
 {
-	char	*len;
+	char	*lin;
 	int		i;
 	int		j;
 
@@ -48,16 +48,16 @@ char	*one_line(char *str)
 		i++;
 	if (str[i] == '\n')
 		i++;
-	len = malloc(i + 1);
-	if (len == NULL)
+	lin = malloc(i + 1);
+	if (lin == NULL)
 		return (NULL);
 	i = 0;
 	while (str[i] && str[i] != '\n')
-		len[j++] = str[i++];
+		lin[j++] = str[i++];
 	if (str[i] == '\n')
-		len[j++] = '\n';
-	len[j] = '\0';
-	return (len);
+		lin[j++] = '\n';
+	lin[j] = '\0';
+	return (lin);
 }
 
 char	*rest(char *str)
@@ -72,7 +72,7 @@ char	*rest(char *str)
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (str[i] == '\0')
+	if (str[i] == '\0' || str[i + 1] == '\0')
 	{
 		free(str);
 		return (NULL);
@@ -94,11 +94,6 @@ char	*get_next_line(int fd)
 	static char	*str;
 	char		*aff;
 
-	if (fd == -500)
-	{
-		free(str);
-		return (NULL);
-	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	str = all_buffer(str, fd);

@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:52:55 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/05 18:37:57 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:02:30 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	indix_of_min(t_list *stack_a)
 void	three_numbers(t_list **stack_a)
 {
 	int		max;
-	
+
 	max = max_num(*stack_a);
 	if (max == (*stack_a)->next->content)
 		rra(stack_a);

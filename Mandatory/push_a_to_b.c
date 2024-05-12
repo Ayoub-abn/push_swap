@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:39 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/05 02:23:43 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:52:32 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	push_a_to_b(t_list **stack_a, t_list **stack_b, int p)
 {
 	while ((*stack_a))
 	{
-		if ((*stack_a)->index < ft_lstsize(*stack_b))
+		if ((*stack_a)->index <= ft_lstsize(*stack_b))
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);
 		}
-		else if ((*stack_a)->index <= ft_lstsize(*stack_b) + p)
+		else if ((*stack_a)->index < ft_lstsize(*stack_b) + p)
 		{
 			pb(stack_a, stack_b);
 		}

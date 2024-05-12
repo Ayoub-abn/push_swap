@@ -6,7 +6,7 @@
 #    By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 19:59:45 by aabdenou          #+#    #+#              #
-#    Updated: 2024/05/04 17:19:51 by aabdenou         ###   ########.fr        #
+#    Updated: 2024/05/07 16:03:50 by aabdenou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ALL_SRC = ./Mandatory/crazy_input.c ./Mandatory/ft_putstr.c \
 	  
 SRC = $(ALL_SRC) ./Mandatory/push_swap.c \
 	./Mandatory/fill_and_sort_array.c \
-	./Mandatory/sort_2_3_4_5.c\
+	./Mandatory/sort_2_to_5.c\
 	./Mandatory/moves_2.c \
 	./Mandatory/moves_3.c \
 	./Mandatory/moves.c \

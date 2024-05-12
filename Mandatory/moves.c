@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:42 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/05 19:02:08 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/05 23:03:11 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	reverse_rotate(t_list **stack)
 
 	last = ft_lstlast(*stack);
 	tmp = *stack;
-	while (tmp->next->next == NULL)
+	while (tmp->next->next != NULL)
 	{
 		tmp = tmp->next;
 	}

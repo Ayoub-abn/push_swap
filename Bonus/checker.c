@@ -6,7 +6,7 @@
 /*   By: aabdenou <aabdenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 20:06:03 by aabdenou          #+#    #+#             */
-/*   Updated: 2024/05/05 15:03:08 by aabdenou         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:01:26 by aabdenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,8 @@ void	moves(t_list **stack_a, t_list **stack_b, char *line)
 	else if (ft_strcmp(line, "rrr\n") == 0)
 		rrr(stack_a, stack_b);
 	else
-	       //hadi
-		(get_next_line(-500), free_stack(stack_a), free_stack(stack_b),
-			 free(line), ft_putstr_fd("Error\n", 2), exit(255));
+		(free_stack(stack_a), free_stack(stack_b),
+			free(line), ft_putstr_fd("Error\n", 2), exit(255));
 }
 
 void	check_moves(t_list **stack_a, t_list **stack_b)
